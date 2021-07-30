@@ -17,10 +17,8 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        List<String> list = new ArrayList<String>(10);
-        list.add(2, "1");
-        System.out.println(list.get(1));
-
+        //System.out.println(test("160721102613"));
+        System.out.println( Boolean.TRUE);
 
     }
 
@@ -34,11 +32,13 @@ public class Test {
 
                         BigInteger bigInteger = new BigInteger(s, 16);
                         int value = bigInteger.intValue();
-                        if( value/10 == 0 ){
-                            result = "0" + value;
-                        } else {
-                            result = String.valueOf(value);
-                        }
+                        //if( value/10 == 0 ){
+                        //    result = "0" + value;
+                        //} else {
+                        //    result = String.valueOf(value);
+                        //}
+
+                        result = String.valueOf(value);
                         return result;
                     })
                     .reduce("", (a,b) -> a+b);
@@ -48,6 +48,28 @@ public class Test {
         }
 
         return null;
+    }
+
+    private static boolean compareVersion(String version1, String version2) {
+        if ( version1 == null || version2 == null ) {
+            return false;
+        }
+
+        String[] nums1 = version1.split("\\.");
+        String[] nums2 = version2.split("\\.");
+        int n1 = nums1.length, n2 = nums2.length;
+
+        // compare versions
+        int i1, i2;
+        for (int i = 0; i < Math.max(n1, n2); ++i) {
+            i1 = i < n1 ? Integer.parseInt(nums1[i]) : 0;
+            i2 = i < n2 ? Integer.parseInt(nums2[i]) : 0;
+            if (i1 != i2) {
+                return i1 > i2 ? true : false;
+            }
+        }
+        // the versions are equal
+        return true;
     }
 
     private static void count(int a){

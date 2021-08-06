@@ -24,6 +24,15 @@ public class BufferDemo {
 
         displayByteBufferMetadata(byteBuffer);
 
+        byteBuffer.put((byte) 'a');
+        byteBuffer.put((byte) 'b');
+
+        displayByteBufferMetadata(byteBuffer);
+        // position->0,limit->有效位【写入了多少位】, capacity->length
+        byteBuffer.flip();
+
+        displayByteBufferMetadata(byteBuffer);
+
     }
 
     private static void displayByteBufferMetadata(ByteBuffer byteBuffer) {

@@ -3,6 +3,7 @@ package com.allen.dayup.arithmetic;
 import com.google.common.base.Splitter;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,9 +17,14 @@ import java.util.List;
  */
 public class Test {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //System.out.println(test("160721102613"));
-        System.out.println( Boolean.TRUE);
+        //System.out.println( Boolean.TRUE);
+        //byte[] bytes = {48,48,48};
+        //System.out.println(new String(bytes, "utf-8"));
+        Class clazz = String.class;
+        String s = (String) clazz.getConstructor(String.class).newInstance(new Object[]{"ab"}) ;
+        System.out.println(s);
 
     }
 

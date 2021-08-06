@@ -38,6 +38,7 @@ public class ChannelRedirect {
                 writableByteChannel.write(buffer);
             }
 
+            //清空buffer
             buffer.clear();
         }
 

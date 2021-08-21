@@ -13,9 +13,33 @@ import java.nio.file.*;
 public class PathDemo {
 
     public static void main(String[] args) throws IOException {
-        Path path = Paths.get("E:\\Test.txt");
-        Path path1 = Paths.get("E:/teatcopy1.txt");
-        Files.copy(path, path1, StandardCopyOption.COPY_ATTRIBUTES);
+        Path path = Paths.get("./test2/test.txt");
+
+        //
+        System.out.println(path.getFileSystem());
+
+        System.out.println(path.isAbsolute()); // true 判断路径是否为绝对路径
+
+        System.out.println(path.getRoot()); // E:\
+
+        System.out.println(path.getFileName()); // test.txt
+
+        System.out.println(path.getParent()); // 获取上层目录
+
+        System.out.println(path.getNameCount()); // 统计路径深度
+
+        System.out.println(path.getName(0)); // test1, 父文件一级路径
+
+        System.out.println(path.subpath(0,1)); // E:\test1\test.txt ,(0,1) -> E:\test1 | E:\test1\test.txt,(1,2) -> test.txt
+
+        System.out.println(path.startsWith("E:/test1")); // true
+
+        System.out.println(path.endsWith(Paths.get("test.txt"))); // true
+
+        // a: E:/test1/test.txt, b: E:/test2 -> E:/test2  | E:/test1/test.txt, test2.txt. E:/test1/test.txt/test2.txt
+        System.out.println(path.resolve(Paths.get("./test1/test"))); //解析路径
+
+
     }
 
     public static void iterateDir() throws IOException {

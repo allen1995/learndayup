@@ -18,9 +18,52 @@ public class Test {
 
     public static void main(String[] args) throws IOException {
         //System.out.println(test("160721102613"));
-        System.out.println( Boolean.TRUE);
+        isPalindrome("0P");
 
     }
+
+    public static boolean isPalindrome(String s) {
+        if(countEffectiveAlphabet(s) < 2) {
+            return true;
+        }
+
+        s = s.toLowerCase();
+        for(int i = 0, j = s.length()-1; i < j;) {
+            while( !isLowerAlphabet(s.charAt(i)) ) {
+                i++;
+            }
+
+            while( !isLowerAlphabet(s.charAt(j))) {
+                j--;
+            }
+
+            if( s.charAt(i) != s.charAt(j) ) {
+                return false;
+            }
+
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+
+    private static boolean isLowerAlphabet(char chr) {
+        return (chr <= 122 && chr >= 97) || (chr >= 48 && chr <= 57);
+    }
+
+    private static   int countEffectiveAlphabet(String s) {
+        int result = 0;
+
+        for(int i = 0 ; i < s.length(); i++) {
+            if( isLowerAlphabet(s.charAt(i))) {
+                result++;
+            }
+        }
+
+        return result;
+    }
+    
 
     public static LocalDateTime test(String opentimeHex) {
         if( opentimeHex != null && opentimeHex.length() > 0 && (new BigInteger(opentimeHex, 16).intValue() > 0)) {

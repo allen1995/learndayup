@@ -1,14 +1,17 @@
 package com.allen.dayup.arithmetic;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Splitter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.TypeVariable;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Auther: 20190598
@@ -22,10 +25,111 @@ public class Test {
         //System.out.println( Boolean.TRUE);
         //byte[] bytes = {48,48,48};
         //System.out.println(new String(bytes, "utf-8"));
-        Class clazz = String.class;
-        String s = (String) clazz.getConstructor(String.class).newInstance(new Object[]{"ab"}) ;
-        System.out.println(s);
+        Map<String,Object> data = new HashMap<>();
+        data.put("test", "[1234]");
 
+        String result = data.get("test").toString();
+        System.out.println(result);
+
+        System.out.println(data.get("test").toString().matches("(^\\[.*\\]$)"));
+
+        Map<String,Object> map = new HashMap();
+        map.put("test","test");
+
+        for( Map.Entry<String,Object> entry : map.entrySet() ) {
+
+        }
+
+    }
+
+    public static  void rotate(int[][] matrix) {
+        int length = matrix.length;
+
+        //先上下交换
+        for( int i = 0; i < length/2; i++ ) {
+            int[] temp = matrix[i];
+            matrix[i] = matrix[length-i-1];
+            matrix[length-i-1] = temp;
+        }
+
+        //对角线交换
+        for( int line = 0; line < length; line++) {
+            for( int col = line; col < length; col++) {
+                int temp = matrix[line][col];
+                matrix[line][col] = matrix[col][line];
+                matrix[col][line] = temp;
+            }
+        }
+    }
+
+    public static void printArr(int[][] matrix) {
+        for ( int i = 0; i < matrix.length; i++) {
+            for( int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void moveZeroes(int[] nums) {
+        int i = 0;
+        int j = 0;
+        while (j < nums.length) {
+            if(i<nums.length && nums[i] != 0) {
+                nums[j++] = nums[i];
+            }
+
+            if(i++ >= nums.length) {
+                nums[j++] = 0;
+            }
+        }
+    }
+
+    public static void testFinallyexception() throws FileNotFoundException {
+        try {
+            int a = 12;
+            throw new FileNotFoundException("try exception log.");
+        }  finally {
+            throw new FileNotFoundException("finally exception log.");
+        }
+    }
+
+    public static void rightFinallyexceptio2() throws FileNotFoundException {
+
+        FileNotFoundException e = new FileNotFoundException();
+
+        try {
+            int a = 12;
+            throw new FileNotFoundException("try exception log.");
+        } catch ( IOException ex ) {
+            e.addSuppressed(ex);
+        } finally {
+            try {
+                throw new FileNotFoundException("finally exception log.");
+            } catch (FileNotFoundException ex) {
+                e.addSuppressed(ex);
+            }
+
+            throw e;
+        }
+    }
+
+    public static void rotate(int[] nums, int k) {
+        k = k % 7;
+
+        if( nums.length == 1 || k == 0 ) {
+            return;
+        }
+
+        int[] temp = new int[nums.length];
+        for(int i = 0; i < nums.length; i++) {
+            int j = (i+k) % 7;
+            temp[j] = nums[i];
+        }
+
+        for (int i = 0; i < temp.length; i++) {
+
+        }
     }
 
     public static LocalDateTime test(String opentimeHex) {

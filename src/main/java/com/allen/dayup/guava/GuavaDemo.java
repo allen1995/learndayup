@@ -23,6 +23,8 @@ public class GuavaDemo {
         System.out.println(Objects.equals(user,user1));
         System.out.println(Objects.hashCode(user));
 
+        //BeanUtils
+
         System.out.println(MoreObjects.toStringHelper(user).add("name","testName").toString());
 
         user = null;

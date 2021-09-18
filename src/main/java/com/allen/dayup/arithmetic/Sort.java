@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class Sort {
 
     public static void main(String[] args) {
-        int[] arr = {3,8,2,1,10,35,5,32,23,10};
+        int[] arr = {4,3,2,6,8};
         Sort sort = new Sort();
         sort.quickSort(arr);
 

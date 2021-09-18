@@ -70,6 +70,7 @@ public class Sort {
 
         int privt = arr[high];
         int pIndex = low;
+        int k = 0;
 
         for(int i = low; i < high; i++ ) {
             if( arr[i] < privt ) {

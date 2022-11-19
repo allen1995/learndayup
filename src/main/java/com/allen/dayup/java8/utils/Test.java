@@ -1,7 +1,5 @@
 package com.allen.dayup.java8.utils;
 
-import com.allen.dayup.arithmetic.AppSimplegatewayTriggerdeviceVo;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;

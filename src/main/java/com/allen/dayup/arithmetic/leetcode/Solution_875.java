@@ -13,7 +13,6 @@ class Solution_875 {
 
     public int minEatingSpeed(int[] piles, int h) {
         int result = devideSearch(piles, h);
-        int k = 0;
         return result;
     }
 

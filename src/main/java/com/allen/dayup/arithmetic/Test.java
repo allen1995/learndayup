@@ -1,6 +1,6 @@
 package com.allen.dayup.arithmetic;
 
-import com.allen.dayup.arithmetic.二分查找.Jackson2Util;
+
 import com.google.common.base.Splitter;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -48,7 +48,7 @@ public class Test {
         //
         //System.out.println(t);
         //
-        LinkedHashMap<String,String> map2 = Jackson2Util.converJsonToObj(json, LinkedHashMap.class);
+//        LinkedHashMap<String,String> map2 = Jackson2Util.converJsonToObj(json, LinkedHashMap.class);
         //System.out.println(Jackson2Util.converJsonToObj(json, LinkedHashMap.class));
 
         //System.out.println(Objects.hash("18565105139"));

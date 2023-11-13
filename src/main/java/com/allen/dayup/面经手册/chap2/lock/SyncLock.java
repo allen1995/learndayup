@@ -1,7 +1,5 @@
 package com.allen.dayup.面经手册.chap2.lock;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
-
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /**

@@ -1,9 +1,7 @@
 package com.allen.dayup.面经手册;
 
 import com.allen.dayup.面经手册.chap2.lock.SyncLock;
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
 import org.junit.Test;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 /**
  * @Auther: allen

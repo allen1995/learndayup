@@ -76,16 +76,19 @@ public class JvmUtil {
 
     public static void main(String... args) {
         Double[] ascending = new Double[16];
-        for (int i = 0; i < ascending.length; i++)
+        for (int i = 0; i < ascending.length; i++) {
             ascending[i] = (double) i;
+        }
 
         Double[] descending = new Double[16];
-        for (int i = descending.length - 1; i >= 0; i--)
+        for (int i = descending.length - 1; i >= 0; i--) {
             descending[i] = (double) i;
+        }
 
         Double[] shuffled = new Double[16];
-        for (int i = 0; i < shuffled.length; i++)
+        for (int i = 0; i < shuffled.length; i++) {
             shuffled[i] = (double) i;
+        }
         Collections.shuffle(Arrays.asList(shuffled));
 
         Print.tcfo("Before GC");
